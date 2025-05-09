@@ -6,7 +6,13 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 // package
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  })
+);
+app.options("*", cors());
 app.use(bodyParser.json());
 
 // files
